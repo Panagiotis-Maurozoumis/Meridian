@@ -4,7 +4,8 @@ const translations = {
         about: "About",
         contact: "Contact",
         toggle_language: "EN",
-        toggle_dark_mode: "Light",
+        theme_to_dark: "Dark",
+        theme_to_light: "Light",
         hero_title: "Featured Article",
         hero_excerpt: "This is a sample excerpt for the featured article.",
         ticker_title: "Latest Headlines",
@@ -62,7 +63,8 @@ const translations = {
         about: "Σχετικά με εμάς",
         contact: "Επικοινωνία",
         toggle_language: "GR",
-        toggle_dark_mode: "Ανοιχτόχρωμη λειτουργία",
+        theme_to_dark: "Σκούρο",
+        theme_to_light: "Φωτεινό",
         hero_title: "Άρθρο",
         hero_excerpt: "Αυτό είναι παράδειγμα από περίληψη για το άρθρο.",
         ticker_title: "Τελευταίες Ενημερώσεις",
@@ -114,41 +116,75 @@ const translations = {
         footer_column_4_title: "Πληροφορίες επικοινωνίας",
         contact_info: "1 Γενικό Λύκειο, Πόλη Κέρκυρας",
         email_address: "info@meridian.com"
-    }
-};
+            }
+        };
 
-let currentLanguage = localStorage.getItem('language') || 'en';
-let isDarkMode = localStorage.getItem('darkMode') === 'true';
+function safeGet(key) {
+    try { return localStorage.getItem(key); } catch (e) { return null; }
+}
+function safeSet(key, value) {
+    try { localStorage.setItem(key, value); } catch (e) { /* ignore */ }
+}
+
+let currentLanguage = safeGet('language') || 'en';
+const savedTheme = safeGet('darkMode');
+let isDarkMode = savedTheme !== null
+    ? savedTheme === 'true'
+    : window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+const darkModeButton = document.getElementById('dark-mode-toggle');
+
+function updateThemeButton() {
+    const key = isDarkMode ? 'theme_to_light' : 'theme_to_dark';
+    darkModeButton.textContent = translations[currentLanguage][key];
+}
 
 function setLanguage(lang) {
     currentLanguage = lang;
-    localStorage.setItem('language', lang);
+    safeSet('language', lang);
+    document.documentElement.lang = lang === 'gr' ? 'el' : 'en';
     document.querySelectorAll('[data-i18n]').forEach(el => {
-        el.textContent = translations[lang][el.getAttribute('data-i18n')];
+        const text = translations[lang][el.getAttribute('data-i18n')];
+        if (text !== undefined) el.textContent = text;
     });
+    updateThemeButton();
+}
+
+function applyDarkMode() {
+    document.body.classList.toggle('dark-mode', isDarkMode);
+    updateThemeButton();
 }
 
 function toggleDarkMode() {
     isDarkMode = !isDarkMode;
-    localStorage.setItem('darkMode', isDarkMode);
-    document.body.classList.toggle('dark-mode', isDarkMode);
+    safeSet('darkMode', isDarkMode);
+    applyDarkMode();
 }
 
 document.getElementById('language-toggle').addEventListener('click', () => {
     setLanguage(currentLanguage === 'en' ? 'gr' : 'en');
 });
 
-document.getElementById('dark-mode-toggle').addEventListener('click', toggleDarkMode);
+darkModeButton.addEventListener('click', toggleDarkMode);
 
 setLanguage(currentLanguage);
-toggleDarkMode();
+applyDarkMode();
 
 // Mobile menu
-const nav = document.querySelector('.nav ul');
-const toggleButton = document.querySelector('.nav button');
+const nav = document.getElementById('nav');
+const menuToggle = document.getElementById('menu-toggle');
 
-toggleButton.addEventListener('click', () => {
-    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+menuToggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', open);
+});
+
+// Close the mobile menu after choosing a link
+nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+    });
 });
 
 // Sticky header shadow on scroll
@@ -174,6 +210,7 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 document.querySelectorAll('.card, .split, .profile, #newsletter-form').forEach(el => {
+    el.classList.add('reveal-init');
     observer.observe(el);
 });
 
