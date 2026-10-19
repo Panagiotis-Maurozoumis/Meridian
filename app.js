@@ -62,7 +62,7 @@ const translations = {
         about: "Σχετικά με εμάς",
         contact: "Επικοινωνία",
         toggle_language: "GR",
-        toggle_dark_mode: "Φως",
+        toggle_dark_mode: "Ανοιχτόχρωμη λειτουργία",
         hero_title: "Άρθρο",
         hero_excerpt: "Αυτό είναι παράδειγμα από περίληψη για το άρθρο.",
         ticker_title: "Τελευταίες Ενημερώσεις",
