@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,20 +8,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="top">
     <header id="header">
         <div class="container">
-            <a href="#" class="logo">Meridian</a>
-            <nav class="nav">
+            <a href="#top" class="logo">Meridian</a>
+            <nav class="nav" id="nav">
                 <ul>
-                    <li><a href="#" data-i18n="home">Home</a></li>
-                    <li><a href="#" data-i18n="about">About</a></li>
-                    <li><a href="#" data-i18n="contact">Contact</a></li>
+                    <li><a href="#top" data-i18n="home">Home</a></li>
+                    <li><a href="#editorial" data-i18n="about">About</a></li>
+                    <li><a href="#footer" data-i18n="contact">Contact</a></li>
                 </ul>
             </nav>
             <div class="toggle-container">
                 <button id="language-toggle" data-i18n="toggle_language">EN</button>
-                <button id="dark-mode-toggle" data-i18n="toggle_dark_mode">Light</button>
+                <button id="dark-mode-toggle">Dark</button>
+                <button id="menu-toggle" class="menu-toggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
             </div>
         </div>
     </header>
@@ -142,9 +143,9 @@
             <div class="column">
                 <h3 data-i18n="footer_column_1_title">About Us</h3>
                 <ul>
-                    <li><a href="#" data-i18n="about_us">About Us</a></li>
-                    <li><a href="#" data-i18n="our_team">Our Team</a></li>
-                    <li><a href="#" data-i18n="contact_us">Contact Us</a></li>
+                    <li><a href="#editorial" data-i18n="about_us">About Us</a></li>
+                    <li><a href="#columnists" data-i18n="our_team">Our Team</a></li>
+                    <li><a href="#footer" data-i18n="contact_us">Contact Us</a></li>
                 </ul>
             </div>
             <div class="column">
@@ -165,7 +166,7 @@
             </div>
             <div class="column">
                 <h3 data-i18n="footer_column_4_title">Contact Info</h3>
-                <p data-i18n="contact_info">1st General Lykeum, Corfu Town </p>
+                <p data-i18n="contact_info">1st General Lykeum, Corfu Town</p>
                 <p data-i18n="email_address">info@meridian.com</p>
             </div>
         </div>
