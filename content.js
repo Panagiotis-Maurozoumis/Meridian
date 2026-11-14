@@ -120,7 +120,7 @@ window.ARTICLES = [
         id: "week-without-phones",
         date: "2026-11-10",
         topic: "school",
-        author: "sofia",
+        author: "maria",
         title: {
             en: "A week without phones: what actually happened",
             gr: "Μια εβδομάδα χωρίς κινητά: τι έγινε στην πράξη"
@@ -148,7 +148,7 @@ window.ARTICLES = [
         id: "science-fair-notes",
         date: "2026-11-07",
         topic: "science",
-        author: "nikos",
+        author: "2nd member",
         title: {
             en: "Notes from the science fair",
             gr: "Σημειώσεις από την έκθεση επιστημών"
@@ -205,7 +205,7 @@ window.ARTICLES = [
         id: "librarian-interview",
         date: "2026-11-03",
         topic: "culture",
-        author: "eleni",
+        author: "2nd member",
         title: {
             en: "The librarian who catalogued 4,000 books by hand",
             gr: "Η βιβλιοθηκονόμος που κατέγραψε 4.000 βιβλία με το χέρι"
@@ -231,7 +231,7 @@ window.ARTICLES = [
         id: "harbour-at-dawn",
         date: "2026-10-30",
         topic: "city",
-        author: { en: "Guest writer", gr: "Φιλοξενούμενη πένα" },
+        author: { en: "Guest writer", gr: "3rd member" },
         title: {
             en: "What the harbour sounds like at 6 a.m.",
             gr: "Πώς ακούγεται το λιμάνι στις 6 το πρωί"
@@ -257,7 +257,7 @@ window.ARTICLES = [
         id: "ai-homework-test",
         date: "2026-10-27",
         topic: "science",
-        author: "nikos",
+        author: "3rd member",
         title: {
             en: "Is AI doing our homework? We tested it",
             gr: "Κάνει η τεχνητή νοημοσύνη τις εργασίες μας; Το δοκιμάσαμε"
@@ -283,14 +283,14 @@ window.ARTICLES = [
         id: "school-garden-harvest",
         date: "2026-10-22",
         topic: "school",
-        author: "sofia",
+        author: "maria",
         title: {
             en: "The school garden's first harvest",
             gr: "Η πρώτη σοδειά του σχολικού κήπου"
         },
         excerpt: {
             en: "Tomatoes, basil and one very ambitious pumpkin.",
-            gr: "Ντομάτες, βασιλικός και μια πολύ φιλόδοξη κολοκύθα."
+            gr: "Ντομάτες, βασιλικός και μια κολοκύθα."
         },
         body: {
             en: [
