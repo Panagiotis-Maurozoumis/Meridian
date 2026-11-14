@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meridian</title>
+    <meta name="description" content="Meridian: stories, opinion and news worth your time.">
+    <script>
+        try {
+            var t = localStorage.getItem('theme');
+            if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.dataset.theme = 'dark';
+            }
+        } catch (e) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="top">
+    <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+    <div class="masthead">
+        <div class="container masthead-inner">
+            <div class="masthead-top">
+                <span id="today"></span>
+                <span class="masthead-place" data-site="address"></span>
+            </div>
+            <a href="index.html" class="wordmark">Meridian</a>
+            <p class="tagline" data-i18n="tagline">Stories worth your time</p>
+        </div>
+    </div>
+
+    <header class="site-header" id="header">
+        <div class="container header-inner">
+            <a href="index.html" class="header-logo">Meridian</a>
+            <nav class="nav" id="nav" aria-label="Main">
+                <ul>
+                    <li><a href="index.html#top" data-i18n="nav_home">Home</a></li>
+                    <li><a href="index.html#latest" data-i18n="nav_latest">Latest</a></li>
+                    <li><a href="index.html#editorial" data-i18n="nav_opinion">Opinion</a></li>
+                    <li><a href="index.html#columnists" data-i18n="nav_columnists">Columnists</a></li>
+                    <li><a href="#footer" data-i18n="nav_contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="controls">
+                <button id="language-toggle" class="control" type="button">ΕΛ</button>
+                <button id="theme-toggle" class="control" type="button">Dark</button>
+                <button id="menu-toggle" class="control menu-toggle" type="button" aria-expanded="false" aria-controls="nav" data-i18n-aria="menu" aria-label="Menu">
+                    <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="container front" aria-label="Front page">
+            <div class="lead" id="lead"></div>
+            <aside class="briefs" aria-labelledby="briefs-title">
+                <h2 class="section-label" id="briefs-title" data-i18n="headlines_title">Latest headlines</h2>
+                <ol id="briefs"></ol>
+            </aside>
+        </section>
+
+        <section class="container section" id="latest">
+            <div class="section-head">
+                <h2 data-i18n="latest_title">Latest articles</h2>
+                <div class="filters" id="filters" role="group"></div>
+            </div>
+            <div class="story-grid reveal" id="story-grid"></div>
+            <div class="more-wrap">
+                <button type="button" id="load-more" class="button-quiet" hidden>More stories</button>
+            </div>
+        </section>
+
+        <section class="editorial-band" id="editorial">
+            <div class="container reveal" id="editorial-inner"></div>
+        </section>
+
+        <section class="container section" id="columnists">
+            <div class="section-head">
+                <h2 data-i18n="columnists_title">Columnists</h2>
+            </div>
+            <div class="columnists reveal" id="columnist-list"></div>
+        </section>
+
+        <section class="newsletter" id="newsletter">
+            <div class="container newsletter-inner reveal">
+                <div>
+                    <h2 data-i18n="newsletter_title">The Meridian letter</h2>
+                    <p data-i18n="newsletter_text">The week's best stories, sent to your inbox once a week.</p>
+                </div>
+                <form id="newsletter-form" novalidate>
+                    <label for="email" class="visually-hidden" data-i18n="email_label">Email address</label>
+                    <div class="field-row">
+                        <input type="email" id="email" name="email" autocomplete="email" required data-i18n-placeholder="email_placeholder" placeholder="Your email address">
+                        <button type="submit" class="button" data-i18n="subscribe">Subscribe</button>
+                    </div>
+                    <input type="text" name="_honey" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-wordmark">Meridian</a>
+                <p data-i18n="tagline">Stories worth your time</p>
+            </div>
+            <div>
+                <h3 data-i18n="footer_sections">Sections</h3>
+                <ul>
+                    <li><a href="index.html#latest" data-i18n="nav_latest">Latest</a></li>
+                    <li><a href="index.html#editorial" data-i18n="nav_opinion">Opinion</a></li>
+                    <li><a href="index.html#columnists" data-i18n="nav_columnists">Columnists</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 data-i18n="footer_legal">Legal</h3>
+                <ul>
+                    <li><a href="#" data-i18n="terms">Terms of service</a></li>
+                    <li><a href="#" data-i18n="privacy">Privacy policy</a></li>
+                    <li><a href="#" data-i18n="cookies">Cookie policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 data-i18n="footer_contact">Contact</h3>
+                <p data-site="address"></p>
+                <p><a data-site="email" href="#"></a></p>
+                <ul class="social" id="social-links"></ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <span>© <span data-site="year"></span> Meridian. <span data-i18n="rights">All rights reserved.</span></span>
+            <a href="#top" data-i18n="back_to_top">Back to top</a>
+        </div>
+    </footer>
+
+    <script src="content.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
