@@ -14,7 +14,7 @@ window.SITE = {
     // Every "Contact" link and every newsletter sign-up goes to this address.
     // Replace it with your real email. The first sign-up sends you a one-time
     // confirmation email from FormSubmit; click it and sign-ups start arriving.
-    email: "your-email@example.com",
+    email: "maurozoumispanagiotis@gmail.com",
 
     address: {
         en: "1st General Lyceum, Corfu Town",
@@ -42,27 +42,27 @@ window.TOPICS = {
    `image` is optional; without one the person's initials are shown. */
 window.COLUMNISTS = [
     {
-        id: "eleni",
-        name: { en: "Eleni Markou", gr: "Ελένη Μάρκου" },
+        id: "maria",
+        name: { en: "Maria Kritikou", gr: "Μαρία Κρητικού" },
         role: { en: "Culture editor", gr: "Υπεύθυνη πολιτισμού" },
-        bio:  { en: "Writes about books, music and the people who keep the town's traditions going.",
-                gr: "Γράφει για βιβλία, μουσική και τους ανθρώπους που κρατούν ζωντανές τις παραδόσεις της πόλης." },
+        bio:  { en: "Short Descritption.",
+                gr: "Σντομη Περιγραφή." },
         image: ""
     },
     {
-        id: "nikos",
-        name: { en: "Nikos Vlachos", gr: "Νίκος Βλάχος" },
-        role: { en: "Science & technology", gr: "Επιστήμη & τεχνολογία" },
-        bio:  { en: "Tests the claims so you don't have to. Likes spreadsheets more than he admits.",
-                gr: "Ελέγχει τους ισχυρισμούς για να μη χρειάζεται εσείς. Του αρέσουν τα λογιστικά φύλλα περισσότερο απ' όσο παραδέχεται." },
+        id: "2nd member",
+        name: { en: "2nd member", gr: "2ο μέλος" },
+        role: { en: "Columnist 1" },
+        bio:  { en: "Short description.",
+                gr: "Σύντομη Περιγραφή." },
         image: ""
     },
     {
-        id: "sofia",
-        name: { en: "Sofia Anagnostou", gr: "Σοφία Αναγνώστου" },
+        id: "3rd member",
+        name: { en: "3rd member", gr: "3ο μέλος" },
         role: { en: "School life", gr: "Σχολική ζωή" },
-        bio:  { en: "Covers what happens in classrooms, corridors and the canteen queue.",
-                gr: "Καλύπτει ό,τι συμβαίνει στις τάξεις, στους διαδρόμους και στην ουρά του κυλικείου." },
+        bio:  { en: "Short description.",
+                gr: "Συύντομη περιγραφή." },
         image: ""
     }
 ];
@@ -87,7 +87,7 @@ window.ARTICLES = [
         id: "paper-still-matters",
         date: "2026-11-12",
         topic: "culture",
-        author: "eleni",
+        author: "maria",
         featured: true,
         image: "",
         imageAlt: { en: "", gr: "" },
